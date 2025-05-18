@@ -1,6 +1,8 @@
 # Spring Boot CI/CD Demo with Maven and GitHub Actions
+[![Java CI with Maven](https://github.com/mhamp/monorepo/.github/workflows/build.yml/badge.svg)](https://github.com/mhamp/monorepo/.github/workflows/build.yml)   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mhamp_monorepo&metric=alert_status&token=6bfb21494a165dcff0985732ecce5daf4f12aba9)](https://sonarcloud.io/summary/new_code?id=mhamp_monorepo)(https://sonarcloud.io/dashboard?id=mhamp_monorepo)
 
-[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=mhamp_monorepo&metric=alert_status)](https://sonarcloud.io/dashboard?id=mhamp_monoreop)
+by [Mathias Hamp](https://github.com/mhamp), Munich, May 2025
+
 
 This project demonstrates how to set up a complete CI/CD pipeline for a Spring Boot application using:
 - Maven as the build tool
