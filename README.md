@@ -1,7 +1,8 @@
 # Spring Boot CI/CD Demo with Maven and GitHub Actions
-[![Java CI with Maven](https://github.com/mhamp/monorepo/.github/workflows/build.yml/badge.svg)](https://github.com/mhamp/monorepo/.github/workflows/build.yml)   [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mhamp_monorepo&metric=alert_status&token=6bfb21494a165dcff0985732ecce5daf4f12aba9)](https://sonarcloud.io/summary/new_code?id=mhamp_monorepo)(https://sonarcloud.io/dashboard?id=mhamp_monorepo)
+[![SonarQube Analysis](https://github.com/mhamp/monorepo/actions/workflows/build.yml/badge.svg)](https://github.com/mhamp/monorepo/actions/workflows/build.yml) 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mhamp_monorepo&metric=coverage&token=6bfb21494a165dcff0985732ecce5daf4f12aba9)](https://sonarcloud.io/summary/new_code?id=mhamp_monorepo)
 
-by [Mathias Hamp](https://github.com/mhamp), Munich, May 2025
+by [Mathias Hamp](https://github.com/mhamp) - Munich, May 2025
 
 
 This project demonstrates how to set up a complete CI/CD pipeline for a Spring Boot application using:
@@ -17,7 +18,7 @@ The project follows a multi-module Maven structure:
 /pom.xml         # reactor POM
 /user/pom.xml    # demo user module
 /authentication/pom.xml     # demo authentication module
-/aggregator/pom.xml   # demo aggregator module
+/aggregator/pom.xml   # demo aggregator module (optional)
 ```
 
 ## Key Features
