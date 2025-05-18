@@ -7,7 +7,6 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class MainTest {
     @Test
     void testMainOutput() {
