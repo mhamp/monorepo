@@ -64,8 +64,6 @@ jobs:
             -Dsonar.projectKey=mhamp_monorepo \
             -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
 
-              - name: Build and analyze
-
       - name: Build and analyze authentication
         env:
           SONAR_TOKEN_AUTH: ${{ secrets.SONAR_TOKEN_AUTH }}
@@ -85,7 +83,7 @@ jobs:
           -Dsonar.projectKey=mhamp_user \
           -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
 
-      - name: Build and analyze user
+      - name: Build and analyze aggregator
         env:
           SONAR_TOKEN_AGG: ${{ secrets.SONAR_TOKEN_AGG }}
         run: mvn -B verify sonar:sonar \
