@@ -18,8 +18,10 @@
     </properties>
 
     <dependencies>
-        <!-- Include all modules for coverage aggregation -->
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.xontext</groupId>
             <artifactId>authentication</artifactId>
@@ -29,6 +31,12 @@
             <groupId>com.xontext</groupId>
             <artifactId>user</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
