@@ -12,6 +12,7 @@
     <artifactId>user</artifactId>
 
     <properties>
+        <sonar.projectKey>mhamp_${project.artifactId}</sonar.projectKey>
     </properties>
     <build>
         <plugins>
