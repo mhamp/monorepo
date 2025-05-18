@@ -6,9 +6,11 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class MainTest {
     @Test
-    public void testMainOutput() {
+    void testMainOutput() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
@@ -20,8 +22,5 @@ class MainTest {
         String expected = ("Hello and welcome!").trim();
 
         assertEquals(expected, actual, "Messages should be the same");
-    }
-
-    private void assertEquals(String expected, String actual, String messagesShouldBeTheSame) {
     }
 }
