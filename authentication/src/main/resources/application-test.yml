@@ -1,0 +1,19 @@
+# user-service/src/test/resources/application-test.yml
+spring:
+  profiles:
+    active: test
+  cloud:
+    discovery:
+      enabled: false
+  eureka:
+    client:
+      enabled: false
+  application:
+    name: user-service
+
+# Mock server endpoints for testing
+test:
+  eureka:
+    enabled: false
+  gateway:
+    enabled: false
