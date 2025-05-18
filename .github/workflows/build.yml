@@ -43,8 +43,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          projectBaseDir: dir_for_my_project_in_monorepo
         run: |
           # Build with Jacoco report generation
           mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent verify
