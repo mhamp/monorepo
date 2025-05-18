@@ -10,17 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
     @Test
-    void testMainOutput() {
+    void main_PrintsExpectedOutput() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
-
         Main.main(new String[]{});
-        System.setOut(originalOut);
-
-        String actual = outContent.toString().replace("\r\n", "\n").trim();
-        String expected = ("Hello and welcome!").trim();
-
-        assertEquals(expected, actual, "Messages should be the same");
+        assertEquals("Hello and welcome!", outContent.toString().trim());
+        System.setOut(System.out); // Reset System.out
     }
 }
