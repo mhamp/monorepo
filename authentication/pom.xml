@@ -14,7 +14,7 @@
     <artifactId>authentication</artifactId>
 
     <properties>
-        <sonar.projectKey>mhamp_authentication</sonar.projectKey>
+        <sonar.projectKey>mhamp_${project.artifactId}</sonar.projectKey>
     </properties>
 
     <dependencies>
