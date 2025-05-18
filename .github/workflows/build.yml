@@ -10,33 +10,28 @@ on:
 jobs:
   sonar-analysis:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Important for SonarQube analysis
-
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: 21
           distribution: 'temurin'
-
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar-${{ hashFiles('pom.xml') }}
           restore-keys: ${{ runner.os }}-sonar-
-
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2-
-
       - name: Verify paths
         run: |
           echo "Workspace: ${GITHUB_WORKSPACE}"
@@ -44,7 +39,6 @@ jobs:
           find . -type d | grep -i "src/test" || echo "No test directories found"
           echo "Jacoco report path:"
           find . -name jacoco.xml || echo "No jacoco.xml found yet"
-
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -65,35 +59,6 @@ jobs:
             -Dsonar.organization=mhamp \
             -Dsonar.projectKey=mhamp_monorepo \
             -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
-
-#      - name: Build and analyze authentication
-#        env:
-#          SONAR_TOKEN_AUTH: ${{ secrets.SONAR_TOKEN_AUTH }}
-#        run: mvn -B verify sonar:sonar \
-#          -Dsonar.login=$SONAR_TOKEN_AUTH \
-#          -Dsonar.organization=mhamp \
-#          -Dsonar.projectKey=mhamp_authentication \
-#          -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
-#
-#
-#      - name: Build and analyze user
-#        env:
-#          SONAR_TOKEN_USER: ${{ secrets.SONAR_TOKEN_USER }}
-#        run: mvn -B verify sonar:sonar \
-#          -Dsonar.login=$SONAR_TOKEN_USER \
-#          -Dsonar.organization=mhamp \
-#          -Dsonar.projectKey=mhamp_user \
-#          -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
-#
-#      - name: Build and analyze aggregator
-#        env:
-#          SONAR_TOKEN_AGG: ${{ secrets.SONAR_TOKEN_AGG }}
-#        run: mvn -B verify sonar:sonar \
-#          -Dsonar.login=$SONAR_TOKEN_AGG \
-#          -Dsonar.organization=mhamp \
-#          -Dsonar.projectKey=mhamp_aggregator \
-#          -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
-
 
       - name: Verify Jacoco Reports
         run: |
