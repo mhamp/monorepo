@@ -63,9 +63,6 @@ jobs:
             -Dsonar.organization=mhamp \
             -Dsonar.projectKey=mhamp_monorepo \
             -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
-            -Dsonar.java.binaries=**/target/classes \
-            -Dsonar.junit.reportPaths=**/target/surefire-reports,**/target/failsafe-reports \
-            -Dsonar.coverage.exclusions=**/model/**,**/config/**,**/exception/**
 
       - name: Verify Jacoco Reports
         run: |
