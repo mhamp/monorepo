@@ -64,6 +64,37 @@ jobs:
             -Dsonar.projectKey=mhamp_monorepo \
             -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
 
+              - name: Build and analyze
+
+      - name: Build and analyze authentication
+        env:
+          SONAR_TOKEN_AUTH: ${{ secrets.SONAR_TOKEN_AUTH }}
+        run: mvn -B verify sonar:sonar \
+          -Dsonar.login=$SONAR_TOKEN_AUTH \
+          -Dsonar.organization=mhamp \
+          -Dsonar.projectKey=mhamp_authentication \
+          -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
+
+
+      - name: Build and analyze user
+        env:
+          SONAR_TOKEN_USER: ${{ secrets.SONAR_TOKEN_USER }}
+        run: mvn -B verify sonar:sonar \
+          -Dsonar.login=$SONAR_TOKEN_USER \
+          -Dsonar.organization=mhamp \
+          -Dsonar.projectKey=mhamp_user \
+          -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
+
+      - name: Build and analyze user
+        env:
+          SONAR_TOKEN_AGG: ${{ secrets.SONAR_TOKEN_AGG }}
+        run: mvn -B verify sonar:sonar \
+          -Dsonar.login=$SONAR_TOKEN_AGG \
+          -Dsonar.organization=mhamp \
+          -Dsonar.projectKey=mhamp_aggregator \
+          -Dsonar.coverage.jacoco.xmlReportPaths=**/target/site/jacoco/jacoco.xml,**/target/jacoco-ut/jacoco.xml \
+
+
       - name: Verify Jacoco Reports
         run: |
           echo "Looking for Jacoco reports..."
