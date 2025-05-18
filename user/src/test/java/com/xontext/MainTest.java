@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.util.AssertionErrors.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class MainTest {
     @Test
@@ -21,6 +21,6 @@ class MainTest {
         String actual = outContent.toString().replace("\r\n", "\n").trim();
         String expected = ("Hello and welcome!").trim();
 
-        assertEquals("Messages should be the same", expected, actual );
+        assertEquals(expected, actual, "Messages should be the same");
     }
 }
