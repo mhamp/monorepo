@@ -15,10 +15,15 @@ This project demonstrates how to set up a complete CI/CD pipeline for a Spring B
 
 The project follows a multi-module Maven structure:
 ```bash
-/pom.xml         # reactor POM
-/user/pom.xml    # demo user module
-/authentication/pom.xml     # demo authentication module
-/aggregator/pom.xml   # demo aggregator module (optional)
+monorepo/             # Root directory
+├── pom.xml           # Parent POM 
+├── user/             # Demo user module 
+│   └── pom.xml 
+├── authentication/   # Demo authentication module
+│   └── pom.xml
+├── aggregator/       # Demo aggregator module (optional)
+│   └── pom.xml
+├── .../pom.xml       # Any other reactor POM
 ```
 
 ## Key Features
