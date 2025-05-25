@@ -1,0 +1,17 @@
+# Ignore all target directories recursively
+**/target/
+
+# Ignore all IntelliJ IDEA module files recursively
+**/*.iml
+
+# (Optional) Ignore IntelliJ project config files and folders
+.idea/
+*.iws
+
+# (Optional) Common Java build tool outputs
+build/
+out/
+
+# (Optional) OS-specific files
+.DS_Store
+Thumbs.db
